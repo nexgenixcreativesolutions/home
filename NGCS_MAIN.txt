@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nex Genix Creative Solutions</title>
+    <!-- Link to your existing CSS file -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Additional styles specific to the forms -->
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: black;
+        }
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+            color: #1877f2;
+        }
+        .form-container input, .form-container select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background: #1877f2;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .form-container button:hover {
+            background: #155dbd;
+        }
+        .form-container .small-text {
+            font-size: 12px;
+            color: #666;
+        }
+        .form-container .toggle-link {
+            color: #1877f2;
+            cursor: pointer;
+        }
+        .form-container .toggle-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<h1>Welcome to <strong>NEX GENIX CREATIVE SOLUTIONS</strong></h1>
+
+    <div class="container">
+        <!-- Login Form -->
+        <div class="form-container" id="login-form">
+            <h2>Login</h2>
+            <form>
+                <input type="text" id="login-username-email" placeholder="Username or Email" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p class="small-text">Don't have an account? <span class="toggle-link" onclick="toggleForms()">Sign Up</span></p>
+        </div>
+        <!-- Sign Up Form -->
+        <div class="form-container" id="signup-form" style="display: none;">
+            <h2>Sign Up</h2>
+            <form>
+                <input type="text" id="signup-first-name" placeholder="First Name" required>
+                <input type="text" id="signup-last-name" placeholder="Last Name" required>
+                <input type="text" id="signup-username" placeholder="Username" required>
+                <input type="email" id="signup-email" placeholder="Email" required>
+                <input type="password" id="signup-password" placeholder="Password" required>
+                <input type="password" id="signup-confirm-password" placeholder="Confirm Password" required>
+                <input type="date" id="signup-birthdate" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p class="small-text">Already have an account? <span class="toggle-link" onclick="toggleForms()">Login</span></p>
+        </div>
+    </div>
+
+    <!-- JavaScript to toggle forms and handle form submissions -->
+    <script>
+function handleLogin(event) {
+    event.preventDefault();
+    const username = document.getElementById('loginUsername').value;
+    const password = document.getElementById('loginPassword').value;
+    
+    // You can add your login validation logic here
+    if (username && password) {
+        // If login is successful, redirect here:
+        window.location.href = './NGCS.html';
+    } else {
+        alert('Please enter both username/email and password.');
+    }
+}
+
+
+        function toggleForms() {
+            const loginForm = document.getElementById('login-form');
+            const signupForm = document.getElementById('signup-form');
+            if (loginForm.style.display === 'none') {
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+            } else {
+                loginForm.style.display = 'none';
+                signupForm.style.display = 'block';
+            }
+        }
+
+        // Example function to handle form submissions
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                // Add form validation and submission logic here
+                alert('Form submitted successfully!');
+            });
+        });
+    </script>
+</body>
+</html>
